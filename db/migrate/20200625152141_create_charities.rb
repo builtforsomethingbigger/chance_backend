@@ -4,6 +4,7 @@ class CreateCharities < ActiveRecord::Migration[6.0]
       t.text :charity_name
       t.integer :ein, :limit => 8
       t.text :tag_line
+      t.text :mission
       t.text :website_url
       t.float :current_rating
       t.float :financial_rating
