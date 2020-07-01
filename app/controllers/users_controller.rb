@@ -5,7 +5,8 @@ class UsersController < ApplicationController
     end
     
     def new
-    
+        user = User.new
+        render json: user
     end
     
     def create
@@ -14,7 +15,7 @@ class UsersController < ApplicationController
     end
     
     def edit
-    
+        user = User.find(params[:id])
     end
     
     def update
@@ -29,7 +30,8 @@ class UsersController < ApplicationController
     end
     
     def destroy
-
+        User.destroy
+        render json: user
     end
 
     private

@@ -5,7 +5,7 @@ class DonationsController < ApplicationController
     end
     
     def new
-
+        donation = Donation.new
     end
     
     def create

@@ -34,6 +34,24 @@ parsed.each do |charity|
     end
 end
 
+User.create!(        
+    first_name: "Stephen",
+    last_name: "Cases",
+    username: "Built4SomethingBigger",
+    dob: "1982-12-06",
+    email_address: "stephen.cases@gmail.com",
+    password: "GOATS",
+    street_address: "245 E. 54th Street",
+    street_address_2: "#14L",
+    city: "New York",
+    zip: 10022,
+    phone_number: 6465650795,
+    cc_number: Faker::Business.credit_card_number,
+    cc_exp_date: Faker::Date.birthday(min_age: 1, max_age: 3),
+    cc_type: "American Express",
+    total_donation: 0
+)
+
 50.times do
     User.create!(
         first_name: Faker::Name.first_name,
@@ -54,13 +72,20 @@ end
     )
 end
 
-30.times do
+50.times do
     Donation.create!(
         user_id: User.all.sample.id,
         charity_id: Charity.all.sample.id,
-        donation_amount: rand(1000...2000000),
+        donation_amount: rand(100...1000),
         donation_date: Faker::Date.birthday(min_age: 0, max_age: 5),
         donation_note: Faker::GreekPhilosophers.quote
+    )
+end
+
+100.times do
+    Favorite.create!(
+        user_id: User.all.sample.id,
+        charity_id: Charity.all.sample.id
     )
 end
 
