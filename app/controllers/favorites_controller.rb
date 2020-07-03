@@ -16,10 +16,12 @@ class FavoritesController < ApplicationController
     
     def edit
         favorite = Favorite.find(params[:id])
+        render json: favorite
     end
     
     def update
         Favorite.update(favorite_params)
+        render json: favorite
     end
     
     def show
@@ -27,7 +29,8 @@ class FavoritesController < ApplicationController
     end
     
     def destroy
-        Favorite.destroy
+        favorite = Favorite.find(params[:id])
+        favorite.destroy
     end
 
     private

@@ -45,7 +45,7 @@ User.create!(
     street_address_2: "#14L",
     city: "New York",
     zip: 10022,
-    phone_number: 6465650795,
+    phone_number: "(646)565-0795",
     cc_number: Faker::Business.credit_card_number,
     cc_exp_date: Faker::Date.birthday(min_age: 1, max_age: 3),
     cc_type: "American Express",
