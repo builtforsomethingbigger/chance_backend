@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_152957) do
     t.text "mailing_street_address_2"
     t.string "mailing_city"
     t.integer "mailing_zipcode"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

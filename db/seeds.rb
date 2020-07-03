@@ -8,31 +8,10 @@ UserEvent.destroy_all
 Inbox.destroy_all
 Donation.destroy_all
 Event.destroy_all
-User.destroy_all
 Charity.destroy_all
+User.destroy_all
 Message.destroy_all
 
-parsed.each do |charity|
-    found = Charity.find_by(ein: charity["ein"])
-    if !found 
-        Charity.create!(
-            charity_name: charity["charityName"],
-            ein: charity["ein"].to_i,
-            tag_line: charity["tagLine"],
-            mission: charity["mission"],
-            website_url: charity["websiteURL"],
-            current_rating: charity["currentRating"]["score"],
-            financial_rating: charity["currentRating"]["financialRating"]["score"],
-            accountability_rating: charity["currentRating"]["accountabilityRating"]["score"],
-            cause: charity["cause"]["causeName"],
-            income_amount: charity["irsClassification"]["incomeAmount"],
-            mailing_street_address: charity["mailingAddress"]["streetAddress1"],
-            mailing_street_address_2: charity["mailingAddress"]["streetAddress2"],
-            mailing_city: charity["mailingAddress"]["city"],
-            mailing_zipcode: charity["mailingAddress"]["postalCode"]
-    )
-    end
-end
 
 User.create!(        
     first_name: "Stephen",
@@ -71,6 +50,63 @@ User.create!(
         total_donation: 0
     )
 end
+
+parsed.each do |charity|
+    found = Charity.find_by(ein: charity["ein"])
+    if !found 
+        Charity.create!(
+            charity_name: charity["charityName"],
+            ein: charity["ein"].to_i,
+            tag_line: charity["tagLine"],
+            mission: charity["mission"],
+            website_url: charity["websiteURL"],
+            current_rating: charity["currentRating"]["score"],
+            financial_rating: charity["currentRating"]["financialRating"]["score"],
+            accountability_rating: charity["currentRating"]["accountabilityRating"]["score"],
+            cause: charity["cause"]["causeName"],
+            income_amount: charity["irsClassification"]["incomeAmount"],
+            mailing_street_address: charity["mailingAddress"]["streetAddress1"],
+            mailing_street_address_2: charity["mailingAddress"]["streetAddress2"],
+            mailing_city: charity["mailingAddress"]["city"],
+            mailing_zipcode: charity["mailingAddress"]["postalCode"],
+            user_id: User.all.sample.id
+    )
+    end
+end
+
+Donation.create(
+    user_id: 1,
+    charity_id: 3674,
+    donation_amount: 550,
+    donation_date: "2020-06-22",
+    donation_note: "To help with the Corona pandemic relief",
+    favorite: true
+)
+Donation.create(
+    user_id: 1,
+    charity_id: 1843,
+    donation_amount: 800,
+    donation_date: "2020-01-01",
+    donation_note: "Annual donation",
+    favorite: true
+)
+Donation.create(
+    user_id: 1,
+    charity_id: 2220,
+    donation_amount: 250,
+    donation_date: "2019-09-07",
+    donation_note: "One-time donation",
+    favorite: true
+)
+Donation.create(
+    user_id: 1,
+    charity_id: 781,
+    donation_amount: 375,
+    donation_date: "2019-12-25",
+    donation_note: "Annual donation. F*ck Cancer!",
+    favorite: true
+)
+
 
 50.times do
     Donation.create!(

@@ -15,6 +15,7 @@ class CreateCharities < ActiveRecord::Migration[6.0]
       t.text :mailing_street_address_2
       t.string :mailing_city
       t.integer :mailing_zipcode
+      t.integer :user_id
       t.timestamps
     end
   end
