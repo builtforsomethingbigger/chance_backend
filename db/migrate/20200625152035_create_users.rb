@@ -12,10 +12,10 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :city
       t.integer :zip
       t.string :phone_number
-      t.integer :cc_number
+      t.string :cc_number
       t.date :cc_exp_date
       t.string :cc_type
-      t.integer :total_donation
+      t.integer :cc_cvv
       t.timestamps
     end
   end

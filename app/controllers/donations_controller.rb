@@ -13,10 +13,6 @@ class DonationsController < ApplicationController
         render json: donation
     end
     
-    def edit
-    
-    end
-    
     def update
         donation = Donation.find(params[:id])
         donation.update(donation_params)
@@ -28,10 +24,6 @@ class DonationsController < ApplicationController
         render json: donation
     end
     
-    def destroy
-    
-    end
-
     private
     def donation_params
         params.require(:donation).permit(:user_id, :charity_id, :donation_amount, :donation_date, :donation_note)

@@ -96,10 +96,10 @@ ActiveRecord::Schema.define(version: 2020_06_25_152957) do
     t.string "city"
     t.integer "zip"
     t.string "phone_number"
-    t.integer "cc_number"
+    t.string "cc_number"
     t.date "cc_exp_date"
     t.string "cc_type"
-    t.integer "total_donation"
+    t.integer "cc_cvv"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

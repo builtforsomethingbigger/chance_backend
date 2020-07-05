@@ -14,21 +14,21 @@ Message.destroy_all
 
 
 User.create!(        
-    first_name: "Stephen",
-    last_name: "Cases",
-    username: "Built4SomethingBigger",
-    dob: "1982-12-06",
-    email_address: "stephen.cases@gmail.com",
+    first_name: "Xander",
+    last_name: "Ham",
+    username: "MR_TENBUCKS",
+    dob: "1776-07-04",
+    email_address: "alexander@ustreasury.gov",
     password: "GOATS",
-    street_address: "245 E. 54th Street",
-    street_address_2: "#14L",
+    street_address: "414 West 141st Street",
+    street_address_2: "The Hamilton Grange Estate",
     city: "New York",
-    zip: 10022,
-    phone_number: "(646)565-0795",
+    zip: 10031,
+    phone_number: "(212)704-1776",
     cc_number: Faker::Business.credit_card_number,
     cc_exp_date: Faker::Date.birthday(min_age: 1, max_age: 3),
     cc_type: "American Express",
-    total_donation: 0
+    cc_cvv: 0330
 )
 
 50.times do
@@ -47,7 +47,7 @@ User.create!(
         cc_number: Faker::Business.credit_card_number,
         cc_exp_date: Faker::Date.birthday(min_age: 1, max_age: 3),
         cc_type: Faker::Business.credit_card_type,
-        total_donation: 0
+        cc_cvv: rand(325...9748)
     )
 end
 
@@ -77,7 +77,7 @@ end
 Donation.create(
     user_id: 1,
     charity_id: 3674,
-    donation_amount: 550,
+    donation_amount: 1000,
     donation_date: "2020-06-22",
     donation_note: "To help with the Corona pandemic relief",
     favorite: true
@@ -85,7 +85,7 @@ Donation.create(
 Donation.create(
     user_id: 1,
     charity_id: 1843,
-    donation_amount: 800,
+    donation_amount: 1500,
     donation_date: "2020-01-01",
     donation_note: "Annual donation",
     favorite: true
@@ -93,7 +93,7 @@ Donation.create(
 Donation.create(
     user_id: 1,
     charity_id: 2220,
-    donation_amount: 250,
+    donation_amount: 750,
     donation_date: "2019-09-07",
     donation_note: "One-time donation",
     favorite: true
@@ -101,7 +101,7 @@ Donation.create(
 Donation.create(
     user_id: 1,
     charity_id: 781,
-    donation_amount: 375,
+    donation_amount: 1000,
     donation_date: "2019-12-25",
     donation_note: "Annual donation. F*ck Cancer!",
     favorite: true
