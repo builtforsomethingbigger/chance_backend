@@ -5,13 +5,14 @@ charities = File.read("/Users/builtforsomethingbigger/Development/code/FINAL-PRO
 parsed = JSON.parse(charities)
 
 UserEvent.destroy_all
-Inbox.destroy_all
+Message.destroy_all
 Donation.destroy_all
 Event.destroy_all
+Inbox.destroy_all
 Charity.destroy_all
 User.destroy_all
-Message.destroy_all
 
+puts 'ALL MODELS DELETED'
 
 User.create!(        
     first_name: "Xander",
@@ -142,17 +143,32 @@ end
     )
 end
 
-25.times do
-    Message.create!(
-        message_title: Faker::Quote.yoda,
-        message_body: Faker::Quote.matz    
-    )
-end
+Inbox.create(user_id: 1)
 
-25.times do
-    Inbox.create!(
+Message.create!(
+    user_id: 5,
+    inbox_id: 1,
+    message_title: "Event Inquiry",
+    message_body: Faker::Quote.matz    
+)
+Message.create!(
+    user_id: 5,
+    inbox_id: 1,
+    message_title: "Event Inquiry",
+    message_body: Faker::Quote.matz    
+)
+Message.create!(
+    user_id: 5,
+    inbox_id: 1,
+    message_title: "Event Inquiry",
+    message_body: Faker::Quote.matz    
+)
+5.times do 
+    Message.create!(
         user_id: User.all.sample.id,
-        message_id: Message.all.sample.id
+        inbox_id: 1,
+        message_title: Faker::Job.title,
+        message_body: Faker::Quote.matz    
     )
 end
 

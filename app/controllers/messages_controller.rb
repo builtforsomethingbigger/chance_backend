@@ -1,9 +1,11 @@
 class MessagesController < ApplicationController
     def index
         messages = Message.all
-        render json: messages
+        render json: messages.to_json(:include => {
+            :user => {:only => [:id, :username, :first_name, :last_name]}
+        }, except: [:created_at, :updated_at])
     end
-    
+
     def new
         message = Message.new(params[:id])
         render json: messages
