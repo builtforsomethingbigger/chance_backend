@@ -7,8 +7,7 @@ class MessagesController < ApplicationController
     end
 
     def new
-        message = Message.new(params[:id])
-        render json: messages
+        message = Message.new
     end
     
     def create
@@ -40,6 +39,6 @@ class MessagesController < ApplicationController
 
     private
     def message_params
-        params.require(message).permit(:message_title, :message_body)
+        params.require(:message).permit(:user_id, :inbox_id, :message_title, :message_body)
     end
 end
