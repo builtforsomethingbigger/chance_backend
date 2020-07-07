@@ -38,7 +38,7 @@ class InboxesController < ApplicationController
 
     private
     def inbox_params
-        params.require(inbox).permit(:user_id, :message_id)
+        params.require(:inbox).permit(:user_id, :message_id)
     end
 
 end

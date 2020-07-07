@@ -128,6 +128,7 @@ end
 
 10.times do
     Event.create!(
+        user_id: User.all.sample.id,
         charity_id: Charity.all.sample.id,
         event_date: Faker::Date.birthday(min_age: 0, max_age: 1),
         event_title: Faker::Job.title,
@@ -136,12 +137,12 @@ end
     )
 end
 
-10.times do
-    UserEvent.create!(
-        user_id: User.all.sample.id,
-        event_id: Event.all.sample.id
-    )
-end
+# 10.times do
+#     UserEvent.create!(
+#         user_id: User.all.sample.id,
+#         event_id: Event.all.sample.id
+#     )
+# end
 
 Inbox.create(user_id: 1)
 
