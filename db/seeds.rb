@@ -126,14 +126,16 @@ end
     )
 end
 
-10.times do
+status = ["Pending Approval", "Client Approved"]
+50.times do
     Event.create!(
         user_id: User.all.sample.id,
         charity_id: Charity.all.sample.id,
         event_date: Faker::Date.birthday(min_age: 0, max_age: 1),
         event_title: Faker::Job.title,
         event_type: "Job Opportunity",
-        event_description: Faker::Job.employment_type
+        event_description: Faker::Job.employment_type,
+        event_status: status[rand(0..1)]
     )
 end
 

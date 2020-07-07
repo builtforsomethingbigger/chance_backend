@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 2020_06_25_152415) do
     t.text "event_title"
     t.string "event_type"
     t.text "event_description"
+    t.string "event_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
