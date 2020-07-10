@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'faker'
 require 'json'
-charities = File.read("/Users/builtforsomethingbigger/Development/code/FINAL-PROJECT/chance-api/db/db.json")
+charities = File.read(Rails.root.join("db","db.json"))
 parsed = JSON.parse(charities)
 
 UserEvent.destroy_all
